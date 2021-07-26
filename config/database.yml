@@ -8,22 +8,22 @@ default_sqlite: &default_sqlite
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
-# development:
-#   primary:
-#     <<: *default
-#     database: sharding_migrations_primary_development
-#   primary_shard_one:
-#     <<: *default
-#     database: sharding_migrations_primary_shard_one_development
-
-# SQLite
 development:
   primary:
-    <<: *default_sqlite
-    database: db/development_primary.sqlite3
+    <<: *default
+    database: sharding_migrations_primary_development
   primary_shard_one:
-    <<: *default_sqlite
-    database: db/development_primary_shard_one.sqlite3
+    <<: *default
+    database: sharding_migrations_primary_shard_one_development
+
+# SQLite
+# development:
+#   primary:
+#     <<: *default_sqlite
+#     database: db/development_primary.sqlite3
+#   primary_shard_one:
+#     <<: *default_sqlite
+#     database: db/development_primary_shard_one.sqlite3
 
 test:
   primary:

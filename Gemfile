@@ -5,6 +5,7 @@ ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
+# gem 'rails', git: 'https://github.com/rails/rails', branch: :main
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.1'
 gem 'sqlite3', '~> 1.4'
