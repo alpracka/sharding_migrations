@@ -1,2 +1,2 @@
-class Animal < ShardedRecord
+class Animal < ApplicationRecord
 end
