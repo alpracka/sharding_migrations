@@ -7,6 +7,7 @@ class AddLivesToAnimals < ActiveRecord::Migration[6.1]
         Animal.reset_column_information
         Animal.all.each do |animal|
           animal.lives = SecureRandom.random_number(10)
+          animal.save
         end
       end
 

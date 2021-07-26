@@ -8,6 +8,12 @@ default_sqlite: &default_sqlite
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+default_mysql: &default_mysql
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+# PostgreSQL
 development:
   primary:
     <<: *default
@@ -24,6 +30,15 @@ development:
 #   primary_shard_one:
 #     <<: *default_sqlite
 #     database: db/development_primary_shard_one.sqlite3
+
+# MySQL
+# development:
+#   primary:
+#     <<: *default_mysql
+#     database: sharding_migrations_primary_development
+#   primary_shard_one:
+#     <<: *default_mysql
+#     database: sharding_migrations_primary_shard_one_development
 
 test:
   primary:
