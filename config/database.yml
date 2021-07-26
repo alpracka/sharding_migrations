@@ -1,0 +1,42 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+default_sqlite: &default_sqlite
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+# development:
+#   primary:
+#     <<: *default
+#     database: sharding_migrations_primary_development
+#   primary_shard_one:
+#     <<: *default
+#     database: sharding_migrations_primary_shard_one_development
+
+# SQLite
+development:
+  primary:
+    <<: *default_sqlite
+    database: db/development_primary.sqlite3
+  primary_shard_one:
+    <<: *default_sqlite
+    database: db/development_primary_shard_one.sqlite3
+
+test:
+  primary:
+    <<: *default_sqlite
+    database: db/test_primary.sqlite3
+  primary_shard_one:
+    <<: *default_sqlite
+    database: db/test_primary_shard_one.sqlite3
+
+production:
+  primary:
+    <<: *default
+    database: sharding_migrations_primary_production
+  primary_shard_one:
+    <<: *default
+    database: sharding_migrations_primary_shard_one_production
