@@ -9,6 +9,6 @@ class AddLivesToAnimals < ActiveRecord::Migration[6.1]
   end
 
   def down
-    drop_column :animals, :lives
+    remove_column :animals, :lives
   end
 end
