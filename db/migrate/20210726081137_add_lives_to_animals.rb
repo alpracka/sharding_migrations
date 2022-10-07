@@ -1,4 +1,4 @@
-class AddLivesToAnimals < ActiveRecord::Migration[6.1]
+class AddLivesToAnimals < ActiveRecord::Migration[7.0]
   def up
     add_column :animals, :lives, :integer
 
