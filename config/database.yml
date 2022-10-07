@@ -42,11 +42,11 @@ development:
 
 test:
   primary:
-    <<: *default_sqlite
-    database: db/test_primary.sqlite3
+    <<: *default
+    database: sharding_migrations_primary_test
   primary_shard_one:
-    <<: *default_sqlite
-    database: db/test_primary_shard_one.sqlite3
+    <<: *default
+    database: sharding_migrations_primary_shard_one_test
 
 production:
   primary:
